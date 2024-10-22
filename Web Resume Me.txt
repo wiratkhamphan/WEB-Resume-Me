@@ -1,0 +1,38 @@
+--- Web Resume Me ---
+
+Programming Language
+
+Frotend
+	- Html
+	- css
+	- js
+	- jquery 
+	- ajax
+	- TS
+	- Typescript
+	- php
+
+Backend 
+	- PHP
+	- pytho
+	- Golang
+	- Java
+	- next.js
+	- nodejs
+
+dataebase	
+	- mysql
+	- PostgrsSql
+
+system
+	user
+	- Login 
+	- Register ลงทะเบียน
+	- profile
+
+	amdin
+	- login
+	- reportuser
+
+809885
+	
