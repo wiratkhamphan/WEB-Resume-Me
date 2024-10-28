@@ -5,11 +5,14 @@ import (
 	"github.com/wiratkhamphan/WEBResumeMe/controllers"
 )
 
+// Set up routes
+
 func Setup(app *fiber.App) {
 	app.Get("/", func(c *fiber.Ctx) error {
 		return c.SendString("Hello, World!")
 	})
 
-	// Ensure that login route is POST
+	//  URL : port/login
 	app.Post("/login", controllers.Login)
+	app.Get("/api/user", controllers.GetUser)
 }

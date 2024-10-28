@@ -5,6 +5,7 @@ go 1.22.0
 require (
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/gofiber/fiber/v2 v2.52.5
+	github.com/golang-jwt/jwt/v4 v4.5.0
 )
 
 require (
