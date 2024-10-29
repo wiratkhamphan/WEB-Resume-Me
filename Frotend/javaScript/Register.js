@@ -3,7 +3,7 @@ function Register() {
     const password = document.getElementById("password").value;
     const password_pcf = document.getElementById("password_pcf").value;
 
-    // Basic validation
+   
     if (!username || !password || !password_pcf) {
         Swal.fire("Error", "All fields are required!", "error");
         return false;
@@ -19,6 +19,8 @@ function Register() {
         password: password
     });
 
+    console.log(data);
+    
     // Create an XMLHttpRequest object
     const xhttp = new XMLHttpRequest();
     xhttp.open("POST", "http://localhost:8080/api/Register", true);

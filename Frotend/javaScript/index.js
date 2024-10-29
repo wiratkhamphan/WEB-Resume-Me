@@ -1,16 +1,16 @@
-var jwt = localStorage.getItem("jwt");
-// console.log("JWT Token:", jwt); 
-if (jwt == null) {
-    window.location.href = './login.html';
-}
+// var jwt = localStorage.getItem("jwt");
+// // console.log("JWT Token:", jwt); 
+// if (jwt == null) {
+//     window.location.href = './login.html';
+// }
 
 
 function loadUser() {
-  const jwt = localStorage.getItem("jwt"); // Ensure you're getting the JWT from localStorage
-  if (jwt == null) {
-      window.location.href = './login.html';
-      return; // Exit if JWT is not found
-  }
+//   const jwt = localStorage.getItem("jwt"); // Ensure you're getting the JWT from localStorage
+//   if (jwt == null) {
+//       window.location.href = './login.html';
+//       return; // Exit if JWT is not found
+//   }
 
   const xhttp = new XMLHttpRequest();
   xhttp.open("GET", "http://localhost:8080/api/user", true);
