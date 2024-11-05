@@ -1,20 +1,19 @@
 package database
 
 import (
-	"database/sql"
-
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jmoiron/sqlx"
 )
 
-var DB *sql.DB
+var DB *sqlx.DB
 
-func Connect() (*sql.DB, error) {
+func Connect() (*sqlx.DB, error) {
 	// godotenv.Load()
 	dbDriver := "mysql"
 	dbUser := "root"
 	dbPass := ""
 	dbName := "shoplek"
-	db, err := sql.Open(dbDriver, dbUser+":"+dbPass+"@/"+dbName)
+	db, err := sqlx.Open(dbDriver, dbUser+":"+dbPass+"@/"+dbName)
 
 	if err != nil {
 		return nil, err
@@ -23,7 +22,7 @@ func Connect() (*sql.DB, error) {
 	// Ensure the database connection is valid
 	err = db.Ping()
 	if err != nil {
-		return nil, err
+		panic(err)
 	}
 
 	return db, nil

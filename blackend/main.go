@@ -4,9 +4,12 @@ import (
 	"fmt"
 
 	"github.com/gofiber/fiber/v2"
+	jwtware "github.com/gofiber/jwt/v2"
 	"github.com/wiratkhamphan/WEBResumeMe/config/database"
 	"github.com/wiratkhamphan/WEBResumeMe/routes"
 )
+
+const jwtSecret = "infinitas"
 
 func main() {
 	fmt.Println("dev code app running...")
@@ -18,19 +21,30 @@ func main() {
 	app := fiber.New()
 
 	// Use CORS middleware
-	app.Use(func(c *fiber.Ctx) error {
-		c.Set("Access-Control-Allow-Origin", "*")
-		c.Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-		c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Authorization")
-		c.Set("Access-Control-Allow-Credentials", "true")
+	// app.Use(func(c *fiber.Ctx) error {
+	// 	c.Set("Access-Control-Allow-Origin", "*")
+	// 	c.Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+	// 	c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Authorization")
+	// 	c.Set("Access-Control-Allow-Credentials", "true")
 
-		if c.Method() == "OPTIONS" {
-			c.SendStatus(fiber.StatusNoContent)
-			return nil
-		}
+	// 	if c.Method() == "OPTIONS" {
+	// 		c.SendStatus(fiber.StatusNoContent)
+	// 		return nil
+	// 	}
 
-		return c.Next()
-	})
+	// 	return c.Next()
+	// })
+
+	app.Use("/hello", jwtware.New(jwtware.Config{
+		SigningMethod: "HS256",
+		SigningKey:    []byte(jwtSecret),
+		SuccessHandler: func(c *fiber.Ctx) error {
+			return c.Next()
+		},
+		ErrorHandler: func(c *fiber.Ctx, e error) error {
+			return fiber.ErrUnauthorized
+		},
+	}))
 
 	// Set up routes
 	routes.Setup(app)

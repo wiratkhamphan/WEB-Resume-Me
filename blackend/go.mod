@@ -1,12 +1,14 @@
 module github.com/wiratkhamphan/WEBResumeMe
 
-go 1.22.0
+go 1.22.8
 
 require (
 	github.com/go-sql-driver/mysql v1.8.1
 	github.com/gofiber/fiber/v2 v2.52.5
-	github.com/golang-jwt/jwt/v4 v4.5.0
-	golang.org/x/crypto v0.14.0
+	github.com/gofiber/jwt/v2 v2.2.7
+	github.com/golang-jwt/jwt/v4 v4.5.1
+	github.com/jmoiron/sqlx v1.4.0
+	golang.org/x/crypto v0.28.0
 )
 
 require (
@@ -21,5 +23,5 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasthttp v1.51.0 // indirect
 	github.com/valyala/tcplisten v1.0.0 // indirect
-	golang.org/x/sys v0.15.0 // indirect
+	golang.org/x/sys v0.26.0 // indirect
 )
