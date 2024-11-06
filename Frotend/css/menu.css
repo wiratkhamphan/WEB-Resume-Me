@@ -2,10 +2,12 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  
 }
 
 body {
   font-family: Arial, sans-serif;
+  background-color: #333;
 }
 
 .logo {
@@ -17,7 +19,7 @@ body {
 }
 
 .navbar {
-  background: linear-gradient(to right, rgb(21, 3, 113), rgb(76, 0, 255), rgb(96, 18, 141));
+  background: linear-gradient(to right, rgb(0, 0, 0), rgb(133, 129, 143), rgb(5, 2, 7));
   height: 80px;
   width: 100%;
   display: flex;
@@ -29,6 +31,8 @@ body {
 .menu {
   display: flex;
   list-style: none;
+  margin: 0;
+  padding: 1;
   align-items: center; 
   flex: 1; 
   justify-content: center; 
@@ -153,13 +157,15 @@ body {
     top: 80px;
     left: -100%;
     width: 100%;
-    height: calc(100vh - 80px); 
+    height: calc(50vh - 80px); 
     background: rgba(10, 10, 10, 0.9);
     flex-direction: column;
     align-items: center;
     text-align: center;
     transition: all 0.5s;
     z-index: 1000;
+    margin: 0;
+    padding: 0;
   }
 
   #check:checked ~ .menu {

@@ -23,7 +23,7 @@ function Register() {
     
     // Create an XMLHttpRequest object
     const xhttp = new XMLHttpRequest();
-    xhttp.open("POST", "http://localhost:8080/api/Register", true);
+    xhttp.open("POST", "http://localhost:8080/api/Signup", true);
     xhttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 
     // Define a callback function to handle the response

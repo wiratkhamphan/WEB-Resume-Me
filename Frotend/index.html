@@ -14,40 +14,90 @@
 </head>
 
 <body>
-<!-- Navigation Bar -->
-<nav class="navbar">
-  <input type="checkbox" id="check">
-  <label for="check" class="checkbtn">
-    <i class="fas fa-bars"></i>
-  </label>
-  
-  <!-- Logo -->
-  <label class="logo">
-    H2O <i class="fa fa-braille" aria-hidden="true"></i> CODING
-  </label>
-  
-  <!-- Main Menu -->
-  <ul class="menu">
-    <li><a href="#">Home</a></li>
-    <li><a href="#">Portfolio</a></li>
-    <li><a href="#">Services</a></li>
-    <li><a href="#">Contact</a></li>
-    
-    <!-- Dropdown Menu -->
-    <div class="right-menu" style="text-align: right;"> 
-      <li class="dropdown" style="color: aliceblue;">Username
-        <a class="dropdown-toggle" id="fname" data-bs-toggle="dropdown" aria-expanded="false">
-          ...<i class="caret-down"></i>
-        </a>
-        <ul class="dropdown-menu">
-          <li><a class="dropdown-item" href="#">เปลี่ยนรหัส</a></li>
-        </ul>
-      </li>    
-      
-      <li class="Logout">
-        <a class="" onclick="logout()">Logout</a>
-      </li>
-    </div>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <input type="checkbox" id="check">
+    <label for="check" class="checkbtn">
+      <i class="fas fa-bars"></i>
+    </label>
+
+    <!-- Logo -->
+    <label class="logo">
+      MR. <i class="" aria-hidden="true"></i> Wirat
+    </label>
+
+    <!-- Main Menu -->
+    <ul class="menu">
+      <!-- sale product -->
+      <div>
+        <li class="dropdown" style="color: aliceblue;">
+          <a class="dropdown-toggle " style="color: aliceblue;" id="" data-bs-toggle="dropdown" aria-expanded="false">
+            ขายสินค้า<i class="caret-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" style="text-align: left" href="#">ลงทะเบียนลูกค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="./Pos.html">POS</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">สินค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">จัดการบิลจอง</a></li>
+          </ul>
+        </li>
+      </div>
+      <div>
+        <li class="dropdown" style="color: aliceblue;">
+          <a class="dropdown-toggle " style="color: aliceblue;" id="" data-bs-toggle="dropdown" aria-expanded="false">
+            Stcok<i class="caret-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" style="text-align: left" href="#">สถานะสินค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">เพิ่มสินค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">เปลี่ยนสินค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">เช็คสินค้ารับคืนเข้าสต๊อก</a></li>
+          </ul>
+        </li>
+      </div>
+      <div>
+        <li class="dropdown" style="color: aliceblue;">
+          <a class="dropdown-toggle " style="color: aliceblue;" id="" data-bs-toggle="dropdown" aria-expanded="false">
+            การเงิน<i class="caret-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" style="text-align: left" href="#">รับคืนสินค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">โปรแกรมตรวจสอบรายการเคลื่อนไหวลูกค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">ออกใบกำกับภาษีแบบเต็มรูป</a></li>
+          </ul>
+        </li>
+      </div>
+      <div>
+        <li class="dropdown" style="color: aliceblue;">
+          <a class="dropdown-toggle " style="color: aliceblue;" id="" data-bs-toggle="dropdown" aria-expanded="false">
+            รายงาน<i class="caret-down"></i>
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" style="text-align: left" href="#">รายงานขายสินค้า</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">รายงาน Stock</a></li>
+            <li><a class="dropdown-item" style="text-align: left" href="#">รายงาน การเงิน</a></li>
+           
+          </ul>
+        </li>
+      </div>
+
+      <!-- Dropdown Menu -->
+      <div class="right-menu" style="text-align: right;">
+        <li style="color: aliceblue;">Username</li>
+        <div class="right-menu" style="text-align: right;">
+          <li class="dropdown" style="color: aliceblue;">
+            <a class="dropdown-toggle" style="color: aliceblue;" id="username" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              ....<i class="caret-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">เปลี่ยนรหัส</a></li>
+            </ul>
+          </li>
+          <li class="Logout">
+            <a class="" onclick="logout()">Logout</a>
+          </li>
+        </div>
   </nav>
 
   <!-- Background Section -->

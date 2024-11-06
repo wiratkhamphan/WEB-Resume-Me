@@ -2,9 +2,12 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
 
 	"github.com/gofiber/fiber/v2"
-	jwtware "github.com/gofiber/jwt/v2"
 	"github.com/wiratkhamphan/WEBResumeMe/config/database"
 	"github.com/wiratkhamphan/WEBResumeMe/routes"
 )
@@ -21,30 +24,30 @@ func main() {
 	app := fiber.New()
 
 	// Use CORS middleware
-	// app.Use(func(c *fiber.Ctx) error {
-	// 	c.Set("Access-Control-Allow-Origin", "*")
-	// 	c.Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
-	// 	c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Authorization")
-	// 	c.Set("Access-Control-Allow-Credentials", "true")
+	app.Use(func(c *fiber.Ctx) error {
+		c.Set("Access-Control-Allow-Origin", "*")
+		c.Set("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT, DELETE")
+		c.Set("Access-Control-Allow-Headers", "Origin, Content-Type, Authorization")
+		c.Set("Access-Control-Allow-Credentials", "true")
 
-	// 	if c.Method() == "OPTIONS" {
-	// 		c.SendStatus(fiber.StatusNoContent)
-	// 		return nil
-	// 	}
+		if c.Method() == "OPTIONS" {
+			c.SendStatus(fiber.StatusNoContent)
+			return nil
+		}
 
-	// 	return c.Next()
-	// })
+		return c.Next()
+	})
 
-	app.Use("/hello", jwtware.New(jwtware.Config{
-		SigningMethod: "HS256",
-		SigningKey:    []byte(jwtSecret),
-		SuccessHandler: func(c *fiber.Ctx) error {
-			return c.Next()
-		},
-		ErrorHandler: func(c *fiber.Ctx, e error) error {
-			return fiber.ErrUnauthorized
-		},
-	}))
+	// app.Use("/hello", jwtware.New(jwtware.Config{
+	// 	SigningMethod: "HS256",
+	// 	SigningKey:    []byte(jwtSecret),
+	// 	SuccessHandler: func(c *fiber.Ctx) error {
+	// 		return c.Next()
+	// 	},
+	// 	ErrorHandler: func(c *fiber.Ctx, e error) error {
+	// 		return fiber.ErrUnauthorized
+	// 	},
+	// }))
 
 	// Set up routes
 	routes.Setup(app)
@@ -53,20 +56,20 @@ func main() {
 	app.Listen(":8080")
 
 	// Start the server
-	// go func() {
-	// 	if err := app.Listen(":8080"); err != nil {
-	// 		log.Fatalf("Error Starimg Server: %v", err)
-	// 	}
-	// }()
+	go func() {
+		if err := app.Listen(":8080"); err != nil {
+			log.Fatalf("Error Starimg Server: %v", err)
+		}
+	}()
 
-	// // Handle graceful shutdown
-	// stop := make(chan os.Signal, 1)
-	// signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
+	// Handle graceful shutdown
+	stop := make(chan os.Signal, 1)
+	signal.Notify(stop, syscall.SIGINT, syscall.SIGTERM)
 
-	// <-stop // Wait for interrupt signal
-	// fmt.Println("Shutting down server...")
-	// if err := app.Shutdown(); err != nil {
-	// 	log.Fatalf("Error shutting down server: %v", err)
-	// }
-	// fmt.Println("Server stopped gracefully.")
+	<-stop // Wait for interrupt signal
+	fmt.Println("Shutting down server...")
+	if err := app.Shutdown(); err != nil {
+		log.Fatalf("Error shutting down server: %v", err)
+	}
+	fmt.Println("Server stopped gracefully.")
 }
