@@ -8,7 +8,7 @@
 function loadUser() {
   const jwt = localStorage.getItem("jwt"); // Ensure you're getting the JWT from localStorage
   if (jwt == null) {
-      window.location.href = './login.html';
+      window.location.href = 'http://127.0.0.1:5501/Frotend/login.html';
       return; // Exit if JWT is not found
   }
 
@@ -34,7 +34,9 @@ function loadUser() {
 }
 
 loadUser();
+
+
 function logout() {
   localStorage.removeItem("jwt");
-  window.location.href = './login.html';
+  window.location.href = 'http://127.0.0.1:5501/Frotend/login.html';
 }

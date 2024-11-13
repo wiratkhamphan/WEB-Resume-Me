@@ -31,18 +31,34 @@
       <!-- sale product -->
       <div>
         <li class="dropdown" style="color: aliceblue;">
-          <a class="dropdown-toggle " style="color: aliceblue;" id="" data-bs-toggle="dropdown" aria-expanded="false">
+          <a class="dropdown-toggle" style="color: aliceblue;" id="saleMenu" data-bs-toggle="dropdown" aria-expanded="false" aria-labelledby="saleMenu">
             ขายสินค้า<i class="caret-down"></i>
           </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" style="text-align: left" href="#">ลงทะเบียนลูกค้า</a></li>
-            <li><a class="dropdown-item" style="text-align: left" href="./Pos.html">POS</a></li>
-            <li><a class="dropdown-item" style="text-align: left" href="#">สินค้า</a></li>
-            <li><a class="dropdown-item" style="text-align: left" href="#">จัดการบิลจอง</a></li>
+          <ul class="dropdown-menu" aria-labelledby="saleMenu">
+            <li class="dropdown">
+              <a class="dropdown-toggle" style="text-align: left;" id="customerRegistration" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
+                ลงทะเบียนลูกค้า<i class="caret-down"></i>
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="customerRegistration">
+                <li>
+                  <a class="dropdown-item" style="text-align: left;" href="#">ลูกค้า</a>
+                </li>
+              </ul>
+            </li>
+            
+            <li>
+              <a class="dropdown-item" style="text-align: left" href="./Pos.html">POS</a>
+            </li>
+            <li>
+              <a class="dropdown-item" style="text-align: left" href="#">สินค้า</a>
+            </li>
+            <li>
+              <a class="dropdown-item" style="text-align: left" href="#">จัดการบิลจอง</a>
+            </li>
           </ul>
         </li>
       </div>
-      <div>
+      
         <li class="dropdown" style="color: aliceblue;">
           <a class="dropdown-toggle " style="color: aliceblue;" id="" data-bs-toggle="dropdown" aria-expanded="false">
             Stcok<i class="caret-down"></i>
